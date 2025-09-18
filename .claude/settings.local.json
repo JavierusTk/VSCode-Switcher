@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(compilar IDESwitcher)",
+      "Bash(compilar IDESwitcherTest)",
+      "Bash(npm run compile:*)",
+      "Bash(grep:*)",
+      "Read(//mnt/c/Users/CYBER/AppData/Local/Temp/**)",
+      "Bash(vsce package:*)",
+      "WebSearch"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

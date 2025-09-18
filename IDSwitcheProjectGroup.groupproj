@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{82BBABCF-9ADA-4073-8F45-794B62E29B83}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="IDESwitcher.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="IDESwitcherTest.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="IDESwitcher">
+        <MSBuild Projects="IDESwitcher.dproj"/>
+    </Target>
+    <Target Name="IDESwitcher:Clean">
+        <MSBuild Projects="IDESwitcher.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="IDESwitcher:Make">
+        <MSBuild Projects="IDESwitcher.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="IDESwitcherTest">
+        <MSBuild Projects="IDESwitcherTest.dproj"/>
+    </Target>
+    <Target Name="IDESwitcherTest:Clean">
+        <MSBuild Projects="IDESwitcherTest.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="IDESwitcherTest:Make">
+        <MSBuild Projects="IDESwitcherTest.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="IDESwitcher;IDESwitcherTest"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="IDESwitcher:Clean;IDESwitcherTest:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="IDESwitcher:Make;IDESwitcherTest:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
